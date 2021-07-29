@@ -3,8 +3,9 @@ import sys, os
 from discord.ext import commands
 from ConsoleToStr import ConsoleToStrConverter
 
+command_prefix = "p."  # change this to a prefix of your choice
 # creates a Bot with command prefix p. - can be changed to whatever you like.
-bot = commands.Bot(command_prefix="p.")
+bot = commands.Bot(command_prefix=command_prefix)
  
 # Actual bot code starts here.
 
@@ -23,7 +24,7 @@ async def run(ctx):
      --enter code here--
     ```
     '''
-    code_to_be_exec = ctx.message.content.lstrip("p.run").lstrip(" ```python").rstrip("```")
+    code_to_be_exec = ctx.message.content.lstrip(f"{command_prefix}run").lstrip(" ```python").rstrip("```")
     code_to_be_exec.replace("os.remove","forbidden_command=")
     conv.start()
     exec(code_to_be_exec)
