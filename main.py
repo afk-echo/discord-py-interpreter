@@ -5,35 +5,6 @@ from ConsoleToStr import ConsoleToStrConverter
 
 # creates a Bot with command prefix p. - can be changed to whatever you like.
 bot = commands.Bot(command_prefix="p.")
-
-# A helper function for execution of the code. Helps in making the code a bit more modular.
-def run_in_diff_console(code):
-    
-    '''
-    A helper function that helps execute the code given as an argument to the bot.
-    '''
-    
-    # generates 2 files - tempcode.py and output.txt, from where the code fed by the user will be executed and stored respectively.
-    with open("tempcode.py","w") as f:
-        f.write("from ConsoleToStr import ConsoleToStrConverter\n")
-        f.write("conv = ConsoleToStrConverter()\n")
-        f.write("conv.start()\n")
-        f.write(code)
-        f.write("result = conv.stop()\n")
-        f.write("""
-with open('output.txt','w') as f:
-    f.write(result)
-""")
-    
-    os.system("python tempcode.py")
-    result = ""
-    
-    with open("output.txt","r") as f:
-        line = " "
-        while line:
-            line = f.readline()
-            result += line
-    return result
  
 # Actual bot code starts here.
 
