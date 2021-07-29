@@ -14,3 +14,13 @@ The source for a Discord bot script that, while running, can take python code fr
 2. Extract the file into a folder of your choice on your machine.
 3. Open `main.py` with a text editor and change the value of `command_prefix` to a prefix of your choice. (Default is `p.`)
 4. Run main.py. (can be run by simply double clicking the file)
+
+## Commands
+
+1. `run`: Runs the code that is provided to the bot from a message.
+Usage of run: 
+````
+<prefix>run ```python
+<Enter code here>
+```
+````
