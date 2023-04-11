@@ -24,6 +24,7 @@ async def run(ctx):
      --enter code here--
     ```
     '''
+    conv = ConsoleToStrConverter() # start capturing console outputs
     code_to_be_exec = ctx.message.content.lstrip(f"{command_prefix}run").lstrip(" ```python").rstrip("```")
     code_to_be_exec.replace("os.remove","forbidden_command=")
     conv.start()
